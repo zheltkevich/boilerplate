@@ -1,0 +1,27 @@
+.sapp {
+    display: grid;
+    grid-template-areas:
+        first second third
+        fourth fifth sixth;
+    color: #57579e;
+    color: #ffffff;
+    font-size: 1.3em;
+}
+
+.app {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    padding: 10px;
+
+    @include text-default;
+
+    &::before {
+        content: "@";
+    }
+}
+
+body {
+    margin: 21px;
+}
