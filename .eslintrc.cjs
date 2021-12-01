@@ -33,6 +33,7 @@ module.exports = {
                 varsIgnorePattern: '_',
             },
         ],
+        'space-before-function-paren': ['error', 'never'],
 
         // ========= Vue =========
         'vue/html-indent': ['error', 4],
@@ -42,6 +43,13 @@ module.exports = {
         }],
         'vue/comment-directive': ['error', {
             reportUnusedDisableDirectives: true,
+        }],
+        'vue/match-component-file-name': ['error', {
+            extensions: ['vue'],
+            shouldMatchCase: true,
+        }],
+        'vue/no-unused-properties': ['error', {
+            groups: ['props', 'data', 'computed', 'methods', 'setup'],
         }],
     },
 };

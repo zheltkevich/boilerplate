@@ -1,13 +1,20 @@
 <template>
     <span
+        v-if="big"
         class="sfsf"
-        style="" />
+        style=""
+        @click="handler" />
     <div />
 </template>
 
 <script>
 export default {
     name: 'App',
+    computed: {
+        big() {
+            return '';
+        },
+    },
 };
 </script>
 
