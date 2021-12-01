@@ -1,16 +1,18 @@
 <template>
-  <span />
-  <div />
+    <span
+        class="sfsf"
+        style="" />
+    <div />
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+    name: 'App',
+};
 </script>
 
 <style lang="scss">
 .app {
-  background-color: #000fff;
+  background-color: blue;
 }
 </style>

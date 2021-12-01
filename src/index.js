@@ -1,3 +1,3 @@
-import _ from 'lodash'
+import _ from 'lodash';
 
-console.log('Hello, test!!!!')
+console.log('Hello, test!!!!');
