@@ -22,4 +22,10 @@ export default {
 .app {
   background-color: blue;
 }
+#app {
+    font-size: 1.3em;
+}
+body {
+    margin: 21px;
+}
 </style>
