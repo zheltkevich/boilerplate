@@ -1,2 +1,5 @@
 import _ from 'lodash';
-import './js/main.js';
+
+import '@/css/main.css';
+import '@/scss/main.scss';
+import '@/js/main.js';

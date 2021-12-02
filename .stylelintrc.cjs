@@ -14,6 +14,8 @@ module.exports = {
         'declaration-no-important': true,
         'selector-max-id': 0,
         'selector-max-compound-selectors': 3,
+        'font-family-name-quotes': 'always-where-recommended',
+        'max-line-length': 160,
 
         'color-hex-length': 'long',
         'color-named': 'never',

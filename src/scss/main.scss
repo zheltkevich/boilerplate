@@ -15,8 +15,6 @@
     margin: auto;
     padding: 10px;
 
-    @include text-default;
-
     &::before {
         content: "@";
     }
