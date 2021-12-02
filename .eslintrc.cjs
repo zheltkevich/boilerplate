@@ -48,5 +48,6 @@ module.exports = {
         'vue/no-unused-properties': ['error', {
             groups: ['props', 'data', 'computed', 'methods', 'setup'],
         }],
+        'vue/require-default-prop': 'error',
     },
 };
