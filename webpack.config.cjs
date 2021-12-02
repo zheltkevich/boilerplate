@@ -27,10 +27,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     context: resolve('src'),
-    mode: activeMode(),
+    mode: 'development',
     entry: {
         main: ['./index.js'],
     },
@@ -78,14 +79,22 @@ module.exports = {
             favicon: './favicon.ico',
             minify: {
                 collapseWhitespace: isProduction,
+                removeAttributeQuotes: isProduction,
+                removeComments: isProduction,
             },
+            isBrowser: false,
         }),
         new MiniCssExtractPlugin({
             filename: fileName('css'),
         }),
         new VueLoaderPlugin(),
         new webpack.ProvidePlugin({
+            process: 'process/browser',
+            _map: ['lodash', 'map'],
             Vue: ['vue/dist/vue.esm.js', 'default'],
+        }),
+        new ESLintWebpackPlugin({
+            fix: true,
         }),
     ],
     module: {
