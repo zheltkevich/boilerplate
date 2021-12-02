@@ -31,7 +31,7 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     context: resolve('src'),
-    mode: 'development',
+    mode: activeMode(),
     entry: {
         main: ['./index.js'],
     },
@@ -61,7 +61,6 @@ module.exports = {
     resolve: {
         alias: {
             '@': resolve('src'),
-            'process': 'process/browser',
         },
     },
     optimization: {
@@ -90,8 +89,6 @@ module.exports = {
         new VueLoaderPlugin(),
         new webpack.ProvidePlugin({
             process: 'process/browser',
-            _map: ['lodash', 'map'],
-            Vue: ['vue/dist/vue.esm.js', 'default'],
         }),
         new ESLintWebpackPlugin({
             fix: true,
