@@ -21,6 +21,7 @@ const fileName = (extention) => {
 };
 
 // Plugins =============================================
+const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -59,6 +60,7 @@ module.exports = {
     resolve: {
         alias: {
             '@': resolve('src'),
+            'process': 'process/browser',
         },
     },
     optimization: {
@@ -82,6 +84,9 @@ module.exports = {
             filename: fileName('css'),
         }),
         new VueLoaderPlugin(),
+        new webpack.ProvidePlugin({
+            Vue: ['vue/dist/vue.esm.js', 'default'],
+        }),
     ],
     module: {
         rules: [
@@ -114,6 +119,16 @@ module.exports = {
                 ],
             },
             {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
+            {
                 test: /\.(ttf|woff|woff2|eot)$/i,
                 type: 'asset/resource',
                 generator: {
@@ -125,16 +140,6 @@ module.exports = {
                 type: 'asset/resource',
                 generator: {
                     filename: `assets/img/${fileName('[ext]')}`,
-                },
-            },
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                    },
                 },
             },
         ],

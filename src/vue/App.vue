@@ -1,31 +1,27 @@
 <template>
-    <span
-        v-if="big"
-        class="sfsf"
-        style=""
-        @click="handler" />
-    <div />
+    <div class="main">
+        <div
+            id="nav"
+            class="nav">
+            <router-link to="/">
+                Home
+            </router-link> |
+            <router-link to="/about">
+                About
+            </router-link>
+        </div>
+        <router-view />
+    </div>
 </template>
 
 <script>
 export default {
     name: 'App',
-    computed: {
-        big() {
-            return '';
-        },
-    },
 };
 </script>
 
 <style lang="scss">
-.app {
-  background-color: blue;
-}
-#app {
-    font-size: 1.3em;
-}
-body {
-    margin: 21px;
+.nav {
+    text-align: center;
 }
 </style>
