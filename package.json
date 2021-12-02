@@ -1,7 +1,7 @@
 {
-    "name": "test-template",
-    "version": "1.0.0",
-    "description": "test-template",
+    "name": "boilerplate",
+    "version": "0.1.0",
+    "description": "Easy way to launch your SPA/PWA with a ready-to-go boilerplate based on using WebPack5, Vue3, Eslint7, Stylelint14",
     "private": true,
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack --mode development",
@@ -11,14 +11,22 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/zheltkevich/test-template.git"
+        "url": "git+https://github.com/zheltkevich/boilerplate.git"
     },
-    "author": "",
+    "keywords": [
+        "webpack",
+        "vue",
+        "eslint",
+        "stylelint",
+        "boilerplate",
+        "template"
+    ],
+    "author": "Aleksandr Zheltkevich <zheltkevich42@gmail.com>",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/zheltkevich/test-template/issues"
+        "url": "https://github.com/zheltkevich/boilerplate/issues"
     },
-    "homepage": "https://github.com/zheltkevich/test-template#readme",
+    "homepage": "https://github.com/zheltkevich/boilerplate#readme",
     "dependencies": {
         "lodash": "^4.17.21",
         "vue": "^3.2.23",
