@@ -1,9 +1,9 @@
 const path = require('path');
-const resolve = (folder) => path.resolve(__dirname, folder);
 const development = 'development';
 const production = 'production';
 const isDevelopment = process.env.NODE_ENV === development;
 const isProduction = process.env.NODE_ENV === production;
+const resolve = (folder) => path.join(__dirname, folder);
 
 const activeMode = () => {
     let consoleText = '';
@@ -28,6 +28,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     context: resolve('src'),
@@ -44,7 +45,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         static: {
-            directory: path.join(__dirname, 'src'),
+            directory: resolve('src'),
         },
         hot: isDevelopment,
         open: true,
@@ -92,6 +93,11 @@ module.exports = {
         }),
         new ESLintWebpackPlugin({
             fix: true,
+            files: ['**/*.{vue,js}'],
+        }),
+        new StyleLintPlugin({
+            fix: true,
+            files: ['**/*.{vue,css,scss}'],
         }),
     ],
     module: {
@@ -101,9 +107,11 @@ module.exports = {
                 loader: 'vue-loader',
             },
             {
-                test: /\.(scss|css)$/i,
+                test: /\.(scss|css)$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
                     {
                         loader: 'css-loader',
                         options: {

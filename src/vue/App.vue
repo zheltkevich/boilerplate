@@ -6,10 +6,12 @@
             <router-link to="/">
                 Home
             </router-link> |
+
             <router-link to="/about">
                 About
             </router-link>
         </div>
+
         <router-view />
     </div>
 </template>
@@ -22,8 +24,8 @@ export default {
 
 <style lang="scss">
 .nav {
-    height: 10px;
     width: 10px;
-        text-align: center;
+    height: 10px;
+    text-align: center;
 }
 </style>
