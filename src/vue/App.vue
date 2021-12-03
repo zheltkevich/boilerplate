@@ -22,6 +22,8 @@ export default {
 
 <style lang="scss">
 .nav {
-    text-align: center;
+    height: 10px;
+    width: 10px;
+        text-align: center;
 }
 </style>
