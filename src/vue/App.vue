@@ -21,11 +21,3 @@ export default {
     name: 'App',
 };
 </script>
-
-<style lang="scss">
-.nav {
-    width: 10px;
-    height: 10px;
-    text-align: center;
-}
-</style>

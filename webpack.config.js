@@ -3,7 +3,7 @@ const development = 'development';
 const production = 'production';
 const isDevelopment = process.env.NODE_ENV === development;
 const isProduction = process.env.NODE_ENV === production;
-const resolve = (folder) => path.join(__dirname, folder);
+const resolve = (folder) => path.resolve(__dirname, folder);
 
 const activeMode = () => {
     let consoleText = '';
@@ -45,7 +45,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         static: {
-            directory: resolve('src'),
+            directory: path.join(__dirname, 'src'),
         },
         hot: isDevelopment,
         open: true,
@@ -82,7 +82,6 @@ module.exports = {
                 removeAttributeQuotes: isProduction,
                 removeComments: isProduction,
             },
-            isBrowser: false,
         }),
         new MiniCssExtractPlugin({
             filename: fileName('css'),
@@ -109,9 +108,7 @@ module.exports = {
             {
                 test: /\.(scss|css)$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                    },
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
@@ -133,6 +130,24 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
+            // {
+            //     test: /\.(ttf|woff|woff2|eot)$/i,
+            //     type: 'asset/resource',
+            //     generator: {
+            //         filename: `assets/fonts/${fileName('[ext]')}`,
+            //     },
+            // },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: `assets/img/${fileName('[ext]')}`,
+                },
+            },
+            {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
@@ -140,20 +155,6 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-env'],
                     },
-                },
-            },
-            {
-                test: /\.(ttf|woff|woff2|eot)$/i,
-                type: 'asset/resource',
-                generator: {
-                    filename: `assets/fonts/${fileName('[ext]')}`,
-                },
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                type: 'asset/resource',
-                generator: {
-                    filename: `assets/img/${fileName('[ext]')}`,
                 },
             },
         ],
