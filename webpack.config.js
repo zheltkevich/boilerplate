@@ -133,13 +133,13 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
-            // {
-            //     test: /\.(ttf|woff|woff2|eot)$/i,
-            //     type: 'asset/resource',
-            //     generator: {
-            //         filename: `assets/fonts/${fileName('[ext]')}`,
-            //     },
-            // },
+            {
+                test: /\.(ttf|woff|woff2|eot)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: `assets/fonts/${fileName('[ext]')}`,
+                },
+            },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 type: 'asset/resource',
