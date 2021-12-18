@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ContentTabs from '@/vue/components/ContentTabs.vue';
+import ContentTabs from '@/vue/components/tabs/ContentTabs.vue';
 
 export default {
     name: 'AboutPage',
