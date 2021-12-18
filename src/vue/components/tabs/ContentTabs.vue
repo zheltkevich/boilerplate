@@ -101,13 +101,5 @@ input {
     &.green {
         background-color: #008000;
     }
-
-    &.yellow {
-        background-color: #ffff00;
-    }
-
-    &.brown {
-        background-color: #a52a2a;
-    }
 }
 </style>
