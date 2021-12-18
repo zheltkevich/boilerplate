@@ -50,7 +50,7 @@ module.exports = {
         hot: isDevelopment,
         open: true,
         compress: true,
-        port: 8080,
+        port: 'auto',
         client: {
             reconnect: 5,
             overlay: {
